@@ -9,5 +9,5 @@ class TicketPriority(Enum):
 
 class UserProfile(Enum):
     USER = "USER"
-    MODERADOR = "MODERAOR"
+    MODERADOR = "MODERADOR"
     ADMIN = "ADMIN"
