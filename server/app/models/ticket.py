@@ -16,8 +16,8 @@ class TicketCreate(TicketBase):
     category_type: str = Field(default=None)
     description: str = Field(default=None)
     completed: bool = Field(default=False)
-    created_at: str = Field(default_factory=datetime.now)
-    updated_at: str = Field(default_factory=datetime.now)
+    created_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
 
 
 class TicketUpdate(BaseModel):
@@ -26,7 +26,7 @@ class TicketUpdate(BaseModel):
     category_type: Optional[str]
     description: Optional[str]
     completed: Optional[bool]
-    updated_at: str = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
 
 
 class TicketDelete(TicketBase):
