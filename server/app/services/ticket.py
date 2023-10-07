@@ -25,7 +25,18 @@ class TicketService(DatabaseConfig):
 
     def get_by(self, contains: str) -> List[Dict[str, Any]] or HTTPException:
         tickets_by = []
-        for tickets in self.collection.find({"$text": {"$search": contains}}):
+
+        query = {
+            "$or": [
+                {"ticket_code": {"$regex": contains, "$options": "i"}},
+                {"ticket_proprity": {"$regex": contains, "$options": "i"}},
+                {"client_name": {"$regex": contains, "$options": "i"}},
+                {"category_type": {"$regex": contains, "$options": "i"}},
+                {"description": {"$regex": contains, "$options": "i"}},
+            ]
+        }
+
+        for tickets in self.collection.find(query):
             tickets_by.append(tickets)
 
         if tickets_by:
@@ -34,18 +45,6 @@ class TicketService(DatabaseConfig):
             status_code=404,
             detail=f"Nenhum ticket foi encontrado para o valor: {contains}",
         )
-
-    # def get_by_priority(self, priority: str):
-    #     tickets_priority = []
-    #     for ticket in self.collection.find({"ticket_priority": priority}):
-    #         tickets_priority.append(ticket)
-
-    #     if tickets_priority:
-    #         return tickets_priority
-    #     raise HTTPException(
-    #         status_code=404,
-    #         detail=f"Nenhum ticket com a prioridade: {priority}, foi encontrado  ",
-    #     )
 
     def create_ticket(self, ticket: TicketCreate) -> TicketCreate:
         ticket_data = jsonable_encoder(ticket)
