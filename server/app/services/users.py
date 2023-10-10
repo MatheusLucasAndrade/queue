@@ -5,7 +5,7 @@ from fastapi.encoders import jsonable_encoder
 from pymongo.collection import Collection
 from app.database.database import DatabaseConfig
 
-from app.models.user import UserCreate, UserDelete, UserUpdate
+from app.models.user import UserCreate, UserUpdate
 
 
 class UserService(DatabaseConfig):
