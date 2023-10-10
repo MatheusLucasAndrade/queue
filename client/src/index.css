@@ -1,0 +1,37 @@
+html {
+  --color-1: #f7f8f5;
+  --color-2: #ffffff;
+  --color-3: #463220;
+  --gap-s: 0.625rem;
+  --gap: 1.25rem;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: var(--color-1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.box {
+  padding: var(--gap);
+  border-radius: var(--gap);
+  background: var(--color-2);
+}
+
+.mb {
+  margin-bottom: var(--gap);
+}
