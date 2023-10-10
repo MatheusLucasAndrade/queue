@@ -1,0 +1,52 @@
+.sidenav {
+  position: sticky;
+  top: var(--gap);
+  bottom: var(--gap);
+}
+
+.sidenav li {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+.sidenav li span {
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--gap);
+}
+
+.sidenav li a {
+  flex: 1;
+  font-size: 1.125rem;
+  text-decoration: none;
+  padding: var(--gap-s) 0;
+  color: var(--color-3);
+}
+
+.sidenav div a {
+  flex: 1;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: var(--gap-s) 0;
+  color: var(--color-3);
+}
+
+.sidenav li:hover {
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: var(--color-3);
+  background: var(--color-1);
+  border-radius: var(--gap);
+}
+
+.logo {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-3);
+}
